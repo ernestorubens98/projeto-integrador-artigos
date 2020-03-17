@@ -10,100 +10,120 @@
 </head>
 
 <body>
-    <header>
-        <div class="cabecalho">
-            <h1 class="titulo-principal">RVW ARTICLE</h1>
-            <input type="procurar" name="procurar" id="procurar" placeholder="Procurar">
-            <a href="#">Entrar</a>
+    <header class="cabecalho">
+        <div class="cabecalho-div">
+            <h1 id="titulo-principal">RVW ARTICLE</h1>
+            <input type="search" name="procurar" id="procurar" placeholder="Procurar">
+            <a href="#">
+                <p id="botao-entrar">Entrar</p>
+            </a>
         </div>
 
-        <div class="filtro">
-            <nav>
-                <a href=""><p>ÚLTIMOS ARTIGOS</p></a>
-                <a href=""><p>SEMANA</p></a>
-                <a href=""><p>MÊS</p></a>
-                <a href=""><p>SEMESTRE</p></a>
-            </nav>
-        </div>
+        <nav class="filtro">
+            <a href="#">
+                <p class="escala-filtro">RECENTE</p>
+            </a>
+            <a href="#">
+                <p class="escala-filtro">SEMANA</p>
+            </a>
+            <a href="#">
+                <p class="escala-filtro">MÊS</p>
+            </a>
+            <a href="#">
+                <p class="escala-filtro">SEMESTRE</p>
+            </a>
+        </nav>
     </header>
 
-    <main class="artigos">
-        <ul class="lista-artigos">
-            <li>
-                <article>
-                    <h3>Título do Artigo</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis tenetur nihil itaque est?
-                        Voluptas expedita, possimus doloremque sequi consequuntur ducimus officiis</p>
-                    <a href="#"><label for="">categoria</label></a>
-                    <a href="#"><img src="#" alt="">Foto</a>
-                </article>
-            </li>
-            <li>
-                <article>
-                    <h3>Título do Artigo</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis tenetur nihil itaque est?
-                        Voluptas expedita, possimus doloremque sequi consequuntur ducimus officiis</p>
-                    <a href="#"><label for="">categoria</label></a>
-                    <a href="#"><img src="#" alt="">Foto</a>
-                </article>
-            </li>
-            <li>
-                <article>
-                    <h3>Título do Artigo</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis tenetur nihil itaque est?
-                        Voluptas expedita, possimus doloremque sequi consequuntur ducimus officiis</p>
-                    <a href="#"><label for="">categoria</label></a>
-                    <a href="#"><img src="#" alt="">Foto</a>
-                </article>
-            </li>
-            <li>
-                <article>
-                    <h3>Título do Artigo</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis tenetur nihil itaque est?
-                        Voluptas expedita, possimus doloremque sequi consequuntur ducimus officiis</p>
-                    <a href="#"><label for="">categoria</label></a>
-                    <a href="#"><img src="#" alt="">Foto</a>
-                </article>
-            </li>
-            <li>
-                <article>
-                    <h3>Título do Artigo</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis tenetur nihil itaque est?
-                        Voluptas expedita, possimus doloremque sequi consequuntur ducimus officiis</p>
-                    <a href="#"><label for="">categoria</label></a>
-                    <a href="#"><img src="#" alt="">Foto</a>
-                </article>
-            </li>
-        </ul>
-    </main>
-    <aside>
-        <div class="categorias">
-            <h2>CATEGORIA ARTIGOS</h2>
-            <ul class="filtro-categoria">
-                <a href="#">
-                    <li>Matemática e Física</li>
-                </a>
-                <a href="#">
-                    <li>Química e Biologia</li>
-                </a>
-                <a href="#">
-                    <li>Geografia</li>
-                </a>
-                <a href="#">
-                    <li>História</li>
-                </a>
-                <a href="#">
-                    <li>Linguagens</li>
-                </a>
-                <a href="#">
-                    <li>Filosofia e Sociologia</li>
-                </a>
+    <div class="container">
+        <aside>
+            <div class="categorias">
+                <h2>CATEGORIA ARTIGOS</h2>
+                <ul class="filtro-categoria">
+                    <a href="#">
+                        <li>Matemática e Física</li>
+                    </a>
+                    <a href="#">
+                        <li>Química e Biologia</li>
+                    </a>
+                    <a href="#">
+                        <li>Geografia</li>
+                    </a>
+                    <a href="#">
+                        <li>História</li>
+                    </a>
+                    <a href="#">
+                        <li>Linguagens</li>
+                    </a>
+                    <a href="#">
+                        <li>Filosofia e Sociologia</li>
+                    </a>
+                </ul>
+            </div>
+        </aside>
+        <main>
+            <ul class="lista-artigos">
+                <li>
+                    <article class="artigo-unitario">
+                        <a href="#">
+                            <h3>Título do Artigo</h3>
+                        </a>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis tenetur nihil itaque est?
+                            Voluptas expedita, possimus doloremque sequi consequuntur ducimus officiis</p>
+                        <a href="#"><label for="">#categoria</label></a>
+                        <a href="#"><img src="#" alt="Foto de Perfil"></a>
+                    </article>
+                </li>
+                <li>
+                    <article class="artigo-unitario">
+                        <a href="#">
+                            <h3>Título do Artigo</h3>
+                        </a>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis tenetur nihil itaque est?
+                            Voluptas expedita, possimus doloremque sequi consequuntur ducimus officiis</p>
+                        <a href="#"><label for="">#categoria</label></a>
+                        <a href="#"><img src="#" alt="Foto de Perfil"></a>
+                    </article>
+                </li>
+                <li>
+                    <article class="artigo-unitario">
+                        <a href="#">
+                            <h3>Título do Artigo</h3>
+                        </a>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis tenetur nihil itaque est?
+                            Voluptas expedita, possimus doloremque sequi consequuntur ducimus officiis</p>
+                        <a href="#"><label for="">#categoria</label></a>
+                        <a href="#"><img src="#" alt="Foto de Perfil"></a>
+                    </article>
+                </li>
+                <li>
+                    <article class="artigo-unitario">
+                        <a href="#">
+                            <h3>Título do Artigo</h3>
+                        </a>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis tenetur nihil itaque est?
+                            Voluptas expedita, possimus doloremque sequi consequuntur ducimus officiis</p>
+                        <a href="#"><label for="">#categoria</label></a>
+                        <a href="#"><img src="#" alt="Foto de Perfil"></a>
+                    </article>
+                </li>
+                <li>
+                    <article class="artigo-unitario">
+                        <a href="#">
+                            <h3>Título do Artigo</h3>
+                        </a>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis tenetur nihil itaque est?
+                            Voluptas expedita, possimus doloremque sequi consequuntur ducimus officiis</p>
+                        <a href="#"><label for="">#categoria</label></a>
+                        <a href="#"><img src="#" alt="Foto de Perfil"></a>
+                    </article>
+                </li>
             </ul>
-        </div>
-    </aside>
+        </main>
+    </div>
 
     <footer>
-
+        <p>Copytight 2020 - Aticles Digital House</p>
     </footer>
 
 </body>
