@@ -136,7 +136,7 @@ aside h2 {
 }
 
 .artigo-unitario a img {
-    border: black solid 2px;
+    width: 60px;
     border-radius: 100%;
 }
 
