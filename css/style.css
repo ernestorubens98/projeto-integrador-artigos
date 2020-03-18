@@ -3,7 +3,7 @@ body {
     flex-direction: column;
     align-items: center;
     background: #fdf9f3;
-    font-family: sans-serif;
+    font-family: monospace;
 }
 
 .cabecalho {
@@ -13,7 +13,8 @@ body {
     flex-direction: column;
     padding: 15px;
     width: 100%;
-    color: #e8e7e7;
+    color: #fffb00;
+    font-weight: bold;
 }
 
 .cabecalho-div {
@@ -58,7 +59,7 @@ body {
     flex-wrap: wrap;
     margin-left: 60px;
     padding: 8px 0;
-    font-size: 15px;
+    font-size: 18px;
     color: rgb(255, 255, 255);
 }
 
@@ -74,13 +75,13 @@ main {
 aside {
     width: 20%;
     height: 40vh;
-    font-size: 20px;
+    font-size: 18px;
     display: flex;
     padding: 10px;
 }
 
 aside h2 {
-    font-size: 23px;
+    font-size: 18px;
     text-align: center;
     
 }
@@ -90,14 +91,13 @@ aside h2 {
     margin-top: 15px;
     background-color: #37208a;
     padding: 20px;
-
+    font-size: 18px;
+    
 }
 
 .filtro-categoria li {
     margin-top: 17px;
     color: rgb(255, 255, 255);
-   
-
 }
 
 .container {
@@ -133,14 +133,14 @@ aside h2 {
 }
 
 .artigo-unitario h3 {
-    font-size: 20px;
+    font-size: 18px;
     text-align: center;
     color: black;
     margin-bottom: 10px;
 }
 
 .artigo-unitario p {
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 10px;
 }
 
