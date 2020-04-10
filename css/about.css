@@ -1,0 +1,40 @@
+.borda {
+border: 1px solid red;
+}
+
+.bg-dark1 {
+    background-color: rgb(40, 40, 40);
+}
+
+.bg-dark2 {
+    background-color: rgb(50, 50, 50);
+}
+
+.bg-dark3 {
+    background-color: rgb(60, 60, 60);
+}
+
+.bg-darkOver1 {
+    background-color: rgba(0, 0, 0,0.1);
+  }
+
+.bg-darkOver2 {
+    background-color: rgba(0, 0, 0,0.3);
+    
+  }
+
+.bg-darkOver3 {
+    background-color: rgba(0, 0, 0,0.5);
+  }
+
+.bg-lightOver1 {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+
+.bg-lightOver2 {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+
+.bg-lightOver3 {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
