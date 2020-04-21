@@ -1,3 +1,7 @@
 .borda {
     border: 1px red solid;
 }
+
+.conteudo artigo {
+    border: 1px white solid;
+}
