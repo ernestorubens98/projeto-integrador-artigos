@@ -1,7 +1,104 @@
+/* HEADER */
+.botao-procurar {
+    color: white;
+    background-color: #20568C;
+    border-color: #20568C; 
+}
+
+.botao-procurar:hover {
+    color: #000;
+    background-color: #B0C4D9;
+    border-color: #B0C4D9;
+
+    transition: 0.3s;
+}
+
+.escreva-artigo {
+    background-color: #B0C4D9;
+    border-color: #B0C4D9;
+
+    color: #000;
+}
+
+.escreva-artigo:hover {
+    background-color: #20568C;
+    border-color: #20568C;
+
+    color: white;
+}
+
+.about-login {
+    color: #B0C4D9;
+}
+
+.about-login:hover {
+    color: #B0C4D9;
+    text-decoration: underline;
+}
+
+
 .borda {
     border: 1px red solid;
 }
 
-.conteudo artigo {
-    border: 1px white solid;
+.h1-login {
+    color: #B0C4D9;
+    font-size: 30px;
+    margin-bottom: 0;
+}
+
+/* MAIN */
+.categorias {
+    width: 14%;
+}
+
+.filtro {
+    margin: 5px 35px;
+
+    /* border: white solid 1px; */
+    border-radius: 3px;
+    /* background-color: #3E454D; */
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.filtro:hover {
+    background-color: #B0C4D9;
+    text-decoration: underline;
+    color: #000;
+}
+
+.cor-fundo-artigo {
+    background-color: #2E4359;
+    border-radius: 4px;
+
+}
+
+
+/* TELA DE LOGIN */
+.tela-login {
+    overflow: hidden;
+}
+
+.foto-login {
+    width: 20vw;
+    margin-right: 50px;
+}
+
+.entrar-login {
+    color: white;
+    background-color: #20568C;
+    border-color: #20568C;
+
+    font-weight: bold;   
+}
+
+.entrar-login:hover {
+    color: #000;
+    background-color: #B0C4D9;
+    border-color: #B0C4D9;
+
+    font-weight: bold;   
+    transition: 0.3s;
 }
