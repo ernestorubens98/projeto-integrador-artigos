@@ -1,3 +1,10 @@
+body{
+    margin: 0 auto;
+    padding: 0;
+    min-height:100%;
+    position:relative;
+ 
+ }
 /* HEADER */
 .botao-procurar {
     color: white;
@@ -48,6 +55,7 @@
 }
 
 /* MAIN */
+
 .categorias {
     width: 14%;
 }
@@ -72,9 +80,35 @@
 .cor-fundo-artigo {
     background-color: #2E4359;
     border-radius: 4px;
+    border: solid 0.5px #B0C4D9;
+}
+
+.titulo-artigo {
+    color: #B0C4D9;
 
 }
 
+.titulo-artigo:hover {
+    text-decoration: none;
+    color: rgb(141, 176, 214);
+}
+
+.rodape-artigo a{
+    color: #B0C4D9;
+}
+
+.rodape-artigo a:hover {
+    text-decoration: none;
+
+}
+
+
+/* FOOTER/ROAPE DA PAGINA */
+
+footer {
+    position: relative;
+    bottom: 0;
+}
 
 /* TELA DE LOGIN */
 .tela-login {
