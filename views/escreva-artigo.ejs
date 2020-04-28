@@ -1,0 +1,28 @@
+<%- include('parts/head',{title:'Perfil do Usuário'}); %>
+
+<body class="bg-dark text-light">
+    <%- include('parts/header'); %>
+
+    <form class="p-5 container">
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Título</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Título do artigo">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Categoria</label>
+            <select class="" id="exampleFormControlSelect1">
+                <option>#matemática</option>
+                <option>#português</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Resumo do Artigo</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="20"></textarea>
+        </div>
+        <div class="d-flex justify-content-between">
+            <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
+            <button class="btn btn-primary ml-" type="submit">Postar</button>
+        </div>
+    </form>
+
+<%- include('parts/foot'); %>

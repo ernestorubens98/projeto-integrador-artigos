@@ -136,3 +136,10 @@ footer {
     font-weight: bold;   
     transition: 0.3s;
 }
+
+/* TELA CADASTRAR */
+
+.foto-cadastrar {
+    width: 25vw;
+    margin-right: 50px;
+}
