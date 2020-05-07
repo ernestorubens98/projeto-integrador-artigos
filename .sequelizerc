@@ -1,0 +1,4 @@
+module.exports = { 
+    config: path.resolve("config","database.js"), 
+    models: path.resolve("models"), 
+}
