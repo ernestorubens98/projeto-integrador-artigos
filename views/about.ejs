@@ -1,56 +1,8 @@
-<!doctype html>
-<html lang="en">
+<%- include('parts/head',{title:'Home'}); %>
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<body class="bg-dark text-light"></body>
+    <%- include('parts/header'); %>
 
-    <link rel="stylesheet" href="../css/reset.css">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/about.css">
-    <title>About us</title>
-</head>
-
-<body class="bg-dark text-light">
-    <header>
-        <nav class="navbar navbar-dark bg-darkOver2 justify-content-between border-bottom border-secondary">
-
-            <a class="navbar-brand align-items-center col-2 d-none d-md-flex" href="#">
-                <img src="../imagens/rvw_livros.jpg" width="100" class="d-inline-block align-top" alt="RVW Article">
-                <span class="align-text-middle ml-2">RVW ARTICLE</span>
-            </a>
-
-            <form class="d-flex col-12 col-sm-8 col-md-6">
-                <input class="form-control mr-2 text-light" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-info my-sm-0" type="submit">Search</button>
-            </form>
-
-            <div class="nav-item d-none d-sm-flex">
-                <a class="nav-link my-2" href="#">About</a>
-                <a class="nav-link my-2" href="#">Login</a>
-            </div>
-
-        </nav>
-        <!-- <img src="../imagens/rvw_livros.jpg" alt="Foto de Perfil"> -->
-
-        <!-- <nav class="filtro">
-            <a href="#">
-                <p class="escala-filtro">Recente</p>
-            </a>
-            <a href="#">
-                <p class="escala-filtro">Semana</p>
-            </a>
-            <a href="#">
-                <p class="escala-filtro">Mês</p>
-            </a>
-            <a href="#">
-                <p class="escala-filtro">Semestre</p>
-            </a>
-        </nav> -->
-    </header>
     <main class="container bg-lightOver1 pt-5 pb-5">
 
 
@@ -112,21 +64,8 @@
 
     </main>
 
-    <footer class="d-flex justify-content-center align-items-center bg-darkOver3" style="height: 120px;">
-        <p>Copytight 2020 - Aticles Digital House</p>
-    </footer>
+    <%- include('parts/footer'); %>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
-</body>
-
-</html>
+    <%- include('parts/foot'); %>
