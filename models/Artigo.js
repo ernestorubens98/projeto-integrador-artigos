@@ -15,31 +15,11 @@ let Artigo = (sequelize, DataTypes) => {
             resumo: {
                 type: DataTypes.STRING,
                 allowNull: false
-            },
-            categoria: {
-                type: DataTypes.STRING,
-                allowNull: false
-            },
+            },            
             arquivo_artigo: {
                 type: DataTypes.STRING,
                 allowNull: true
-            },
-            curtir: {
-                type: DataTypes.STRING,
-                allowNull: true
-            },
-            descurtir: {
-                type: DataTypes.STRING,
-                allowNull: true
-            },
-            fk_usuario: {
-                type: DataTypes.INTERGER,
-                allowNull: false
-            },
-            fk_comentario: {
-                type: DataTypes.INTERGER,
-                allowNull: true
-            }
+            }       
         },{
             tableName: "artigos",
             timestamps: false

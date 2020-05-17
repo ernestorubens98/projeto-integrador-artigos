@@ -19,6 +19,9 @@ let Comentario = (sequelize, DataTypes) => {
             fk_artigo: {
                 type: DataTypes.INTERGER,
                 allowNull: false
+            },
+            data:{
+                type: DataTypes.DATETIMES,
             }
         },{
             tableName: "comentarios",
