@@ -19,8 +19,8 @@ let Categoria = (sequelize, DataTypes) => {
 
     );
     categoria.associate = (models) => {
-        categoria.belongsTo(models.Usuario,{foreignKey:'fk_usuario', as:'usuario'});
-        categoria.hasMany(models.Comentario,{foreignKey:'fk_comentario', as:'comentarios'});
+        categoria.belongsToMany(models.Artigo,{ through: models.Artigo_Categoria });
+        categoria.hasMany(models.Artigo_Categoria);
     }
     return categoria
 }

@@ -27,6 +27,10 @@ let Usuario = (sequelize, DataTypes) => {
             foto_perfil: {
                 type: DataTypes.STRING,
                 allowNull: true
+            },
+            is_admin: {
+                type: DataTypes.BOOLEAN,
+                allowNull: false
             }
         },{
             tableName: "usuarios",
@@ -35,8 +39,13 @@ let Usuario = (sequelize, DataTypes) => {
 
     );
     usuario.associate = (models) => {
-        usuario.hasMany(models.Artigo,{foreignKey:'fk_artigo', as:'artigos'});
-        usuario.hasMany(models.Comentario,{foreignKey:'fk_comentario', as:'comentarios'});
+        usuario.belongsToMany(models.Artigos,{ through: models.Comentario });
+        usuario.hasMany(models.Comentario);
+        usuario.belongsToMany(models.Artigos,{ through: models.Notas });
+        usuario.hasMany(models.Notas);
+        usuario.belongsToMany(models.Artigos,{ through: models.Artigo_Autor });
+        usuario.hasMany(models.Artigo_Autor);
+        
     }
     return usuario
 }
