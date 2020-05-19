@@ -39,13 +39,21 @@ let Usuario = (sequelize, DataTypes) => {
 
     );
     usuario.associate = (models) => {
-        usuario.belongsToMany(models.Artigos,{ through: models.Comentario });
-        usuario.hasMany(models.Comentario);
-        usuario.belongsToMany(models.Artigos,{ through: models.Notas });
-        usuario.hasMany(models.Notas);
-        usuario.belongsToMany(models.Artigos,{ through: models.Artigo_Autor });
-        usuario.hasMany(models.Artigo_Autor);
-        
+        usuario.belongsToMany(models.Artigo,{
+            foreignKey:'fk_usuario',
+            as: 'autorArtigos',
+            through: models.Artigo_Autor
+        });
+        usuario.belongsToMany(models.Artigo,{
+            foreignKey:'fk_usuario',
+            as: 'usuarioNotas',
+            through: models.Nota
+        });
+        usuario.belongsToMany(models.Artigo,{
+            foreignKey:'fk_usuario',
+            as: 'usuarioComentarios',
+            through: models.Comentario
+        });
     }
     return usuario
 }

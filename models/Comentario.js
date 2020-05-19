@@ -13,15 +13,15 @@ let Comentario = (sequelize, DataTypes) => {
                 allowNull: false
             },
             fk_usuario: {
-                type: DataTypes.INTERGER,
+                type: DataTypes.INTEGER,               
                 allowNull: false
             },
             fk_artigo: {
-                type: DataTypes.INTERGER,
+                type: DataTypes.INTEGER,               
                 allowNull: false
             },
             data:{
-                type: DataTypes.DATETIMES,
+                type: DataTypes.DATE,
             }
         },{
             tableName: "comentarios",
@@ -30,8 +30,8 @@ let Comentario = (sequelize, DataTypes) => {
 
     );
     comentario.associate = (models) => {
-        comentario.belongsTo(models.Usuario,{foreignKey:'fk_usuario', as:'usuarios'});
-        comentario.belongsTo(models.Artigo,{foreignKey:'fk_artigo', as:'artigos'});
+        comentario.belongsTo(models.Usuario,{foreignKey:'fk_usuario'});
+        comentario.belongsTo(models.Artigo,{foreignKey:'fk_artigo'});
     }
     return comentario
 }

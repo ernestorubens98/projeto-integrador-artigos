@@ -19,8 +19,11 @@ let Categoria = (sequelize, DataTypes) => {
 
     );
     categoria.associate = (models) => {
-        categoria.belongsToMany(models.Artigo,{ through: models.Artigo_Categoria });
-        categoria.hasMany(models.Artigo_Categoria);
+        categoria.belongsToMany(models.Artigo,{
+            foreignKey:'fk_categoria',
+            as: 'categoriaArtigos',
+            through: models.Artigo_Categoria
+        });
     }
     return categoria
 }

@@ -1,26 +1,26 @@
 let Artigo_Categoria = (sequelize, DataTypes) => {
-    let artigo_Categoria  = sequelize.define(
+    let artigo_categoria  = sequelize.define(
         'Artigo_Categoria',
         {
             fk_artigo: {
-                type: DataTypes.INTEGER,
+                type: DataTypes.INTEGER,                
                 allowNull:false
             },
             fk_categoria: {
-                type: DataTypes.INTEGER,
+                type: DataTypes.INTEGER,                
                 allowNull:false
             }
         },{
-            tableName: "artigo_Categorias",
+            tableName: "artigo_categorias",
             timestamps: false
         }
 
     );
-    artigo_Categoria.associate = (models) => {
-        artigo_Categoria.belongsTo(models.Artigo,{foreignKey:'fk_artigo', as:'artigo'});
-        artigo_Categoria.belongsTo(models.Categoria,{foreignKey:'fk_categoria', as:'categoria'});
+    artigo_categoria.associate = (models) => {
+        artigo_categoria.belongsTo(models.Artigo,{foreignKey:'fk_artigo'});
+        artigo_categoria.belongsTo(models.Categoria,{foreignKey:'fk_categoria'});
     }
-    return artigo_Categoria
+    return artigo_categoria
 }
 
 module.exports = Artigo_Categoria;

@@ -27,14 +27,27 @@ let Artigo = (sequelize, DataTypes) => {
 
     );
     artigo.associate = (models) => {
-        artigo.belongsToMany(models.Usuario,{ through: models.Artigo_Autor });
-        artigo.hasMany(models.Artigo_Autor);
-        artigo.belongsToMany(models.Usuario,{ through: models.Comentario });
-        artigo.hasMany(models.Comentario);
-        artigo.belongsToMany(models.Categoria,{ through: models.Artigo_Categoria });
-        artigo.hasMany(models.Artigo_Categoria);
-        artigo.belongsToMany(models.Usuario,{ through: models.Notas });
-        artigo.hasMany(models.Notas);
+        artigo.belongsToMany(models.Usuario,{
+            foreignKey:'fk_artigo',
+            as: 'artigoAutores',
+            through: models.Artigo_Autor
+        });
+        artigo.belongsToMany(models.Usuario,{
+            foreignKey:'fk_artigo',
+            as: 'artigoNotas',
+            through: models.Nota
+        });
+        artigo.belongsToMany(models.Usuario,{
+            foreignKey:'fk_artigo',
+            as: 'artigoComentarios',
+            through: models.Comentario
+        });
+        artigo.belongsToMany(models.Categoria,{
+            foreignKey:'fk_artigo',
+            as: 'artigoCategorias',
+            through: models.Artigo_Categoria
+        });
+               
     }
     return artigo
 }

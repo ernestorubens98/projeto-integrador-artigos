@@ -3,11 +3,11 @@ let Nota = (sequelize, DataTypes) => {
         'Nota',
         {
             fk_usuario: {
-                type: DataTypes.INTEGER,
+                type: DataTypes.INTEGER,                
                 allowNull:false
             },
             fk_artigo: {
-                type: DataTypes.INTEGER,
+                type: DataTypes.INTEGER,                
                 allowNull:false
             },
             nota: {
@@ -21,10 +21,10 @@ let Nota = (sequelize, DataTypes) => {
 
     );
     nota.associate = (models) => {
-        comentario.belongsTo(models.Usuario,{foreignKey:'fk_usuario', as:'usuarios'});
-        comentario.belongsTo(models.Artigo,{foreignKey:'fk_artigo', as:'artigos'});
+        nota.belongsTo(models.Usuario,{foreignKey:'fk_usuario'});
+        nota.belongsTo(models.Artigo,{foreignKey:'fk_artigo'});
     }
-    return artigo_Categoria
+    return nota;
 }
 
 module.exports = Nota;
