@@ -16,6 +16,24 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `artigo_categorias`
+--
+
+DROP TABLE IF EXISTS `artigo_categorias`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `artigo_categorias` (
+  `fk_artigo` int NOT NULL,
+  `fk_categoria` int NOT NULL,
+  PRIMARY KEY (`fk_artigo`,`fk_categoria`),
+  KEY `fk_categorias_has_artigos_artigos1_idx` (`fk_artigo`),
+  KEY `fk_categorias_has_artigos_categorias1_idx` (`fk_categoria`),
+  CONSTRAINT `fk_categorias_has_artigos_artigos1` FOREIGN KEY (`fk_artigo`) REFERENCES `artigos` (`id_artigo`),
+  CONSTRAINT `fk_categorias_has_artigos_categorias1` FOREIGN KEY (`fk_categoria`) REFERENCES `categorias` (`id_categoria`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `artigo_categorias`
 --
 
@@ -24,6 +42,24 @@ LOCK TABLES `artigo_categorias` WRITE;
 INSERT INTO `artigo_categorias` VALUES (1,1),(2,2);
 /*!40000 ALTER TABLE `artigo_categorias` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `artigos`
+--
+
+DROP TABLE IF EXISTS `artigos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `artigos` (
+  `id_artigo` int NOT NULL AUTO_INCREMENT,
+  `titulo` varchar(150) NOT NULL,
+  `resumo` varchar(45) NOT NULL,
+  `arquivo_artigo` varchar(200) DEFAULT NULL,
+  `data` datetime DEFAULT NULL,
+  PRIMARY KEY (`id_artigo`),
+  UNIQUE KEY `id_artigo_UNIQUE` (`id_artigo`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=ascii;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `artigos`
@@ -36,6 +72,28 @@ INSERT INTO `artigos` VALUES (1,'ArtigoDavi','auidhasuidhuaishduisahdusa',NULL,'
 UNLOCK TABLES;
 
 --
+-- Table structure for table `artigos_autores`
+--
+
+DROP TABLE IF EXISTS `artigos_autores`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `artigos_autores` (
+  `id_art_autor` int NOT NULL AUTO_INCREMENT,
+  `fk_artigo` int NOT NULL,
+  `fk_usuario` int NOT NULL,
+  `is_usuario` tinyint DEFAULT NULL,
+  `link` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id_art_autor`,`fk_artigo`,`fk_usuario`),
+  UNIQUE KEY `id_art_autor_UNIQUE` (`id_art_autor`),
+  KEY `fk_artigos_has_usuarios_usuarios1_idx` (`fk_usuario`),
+  KEY `fk_artigos_has_usuarios_artigos1_idx` (`fk_artigo`),
+  CONSTRAINT `fk_artigos_has_usuarios_artigos1` FOREIGN KEY (`fk_artigo`) REFERENCES `artigos` (`id_artigo`),
+  CONSTRAINT `fk_artigos_has_usuarios_usuarios1` FOREIGN KEY (`fk_usuario`) REFERENCES `usuarios` (`id_usuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=ascii;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `artigos_autores`
 --
 
@@ -44,6 +102,21 @@ LOCK TABLES `artigos_autores` WRITE;
 INSERT INTO `artigos_autores` VALUES (1,1,5,1,NULL),(2,2,1,1,NULL),(3,1,1,1,NULL);
 /*!40000 ALTER TABLE `artigos_autores` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `categorias`
+--
+
+DROP TABLE IF EXISTS `categorias`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `categorias` (
+  `id_categoria` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id_categoria`),
+  UNIQUE KEY `id_categoria_UNIQUE` (`id_categoria`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `categorias`
@@ -56,6 +129,28 @@ INSERT INTO `categorias` VALUES (1,'Biologia'),(2,'Computacao');
 UNLOCK TABLES;
 
 --
+-- Table structure for table `comentarios`
+--
+
+DROP TABLE IF EXISTS `comentarios`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `comentarios` (
+  `id_comentario` int NOT NULL AUTO_INCREMENT,
+  `texto_comentario` varchar(500) NOT NULL,
+  `fk_usuario` int NOT NULL,
+  `fk_artigo` int NOT NULL,
+  `data` datetime NOT NULL,
+  PRIMARY KEY (`id_comentario`,`fk_usuario`,`fk_artigo`),
+  UNIQUE KEY `id_comentario_UNIQUE` (`id_comentario`),
+  KEY `fk_comentarios_usuarios1_idx` (`fk_usuario`),
+  KEY `fk_comentarios_artigos1_idx` (`fk_artigo`),
+  CONSTRAINT `fk_comentarios_artigos1` FOREIGN KEY (`fk_artigo`) REFERENCES `artigos` (`id_artigo`),
+  CONSTRAINT `fk_comentarios_usuarios1` FOREIGN KEY (`fk_usuario`) REFERENCES `usuarios` (`id_usuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `comentarios`
 --
 
@@ -66,6 +161,25 @@ INSERT INTO `comentarios` VALUES (1,'Legal!',1,1,'1000-01-01 00:00:00'),(2,'Nao 
 UNLOCK TABLES;
 
 --
+-- Table structure for table `notas`
+--
+
+DROP TABLE IF EXISTS `notas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `notas` (
+  `fk_usuario` int NOT NULL,
+  `fk_artigo` int NOT NULL,
+  `nota` decimal(4,2) DEFAULT '0.00',
+  PRIMARY KEY (`fk_usuario`,`fk_artigo`),
+  KEY `fk_curtidas_usuarios_idx` (`fk_usuario`),
+  KEY `fk_nota_artigos1_idx` (`fk_artigo`),
+  CONSTRAINT `fk_curtidas_usuarios` FOREIGN KEY (`fk_usuario`) REFERENCES `usuarios` (`id_usuario`),
+  CONSTRAINT `fk_nota_artigos1` FOREIGN KEY (`fk_artigo`) REFERENCES `artigos` (`id_artigo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `notas`
 --
 
@@ -74,6 +188,26 @@ LOCK TABLES `notas` WRITE;
 INSERT INTO `notas` VALUES (1,2,2.50),(5,1,5.90);
 /*!40000 ALTER TABLE `notas` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `usuarios`
+--
+
+DROP TABLE IF EXISTS `usuarios`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `usuarios` (
+  `id_usuario` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `senha` varchar(100) NOT NULL,
+  `area_atuacao` varchar(100) NOT NULL,
+  `is_admin` tinyint NOT NULL DEFAULT '0',
+  `foto_perfil` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id_usuario`),
+  UNIQUE KEY `id_usuario_UNIQUE` (`id_usuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `usuarios`
@@ -94,4 +228,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-05-18 23:03:25
+-- Dump completed on 2020-05-19 14:43:04
