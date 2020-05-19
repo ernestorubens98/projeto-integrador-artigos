@@ -11,7 +11,7 @@ let Artigo_Categoria = (sequelize, DataTypes) => {
                 allowNull:false
             }
         },{
-            tableName: "artigo_categorias",
+            tableName: "artigos_categorias",
             timestamps: false
         }
 
