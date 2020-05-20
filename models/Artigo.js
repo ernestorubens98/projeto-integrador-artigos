@@ -40,13 +40,20 @@ let Artigo = (sequelize, DataTypes) => {
         artigo.belongsToMany(models.Usuario,{
             foreignKey:'fk_artigo',
             as: 'artigoComentarios',
-            through: models.Comentario
+            through: {
+                model: models.Comentario,
+                unique: false
+            }
         });
         artigo.belongsToMany(models.Categoria,{
             foreignKey:'fk_artigo',
             as: 'artigoCategorias',
             through: models.Artigo_Categoria
         });
+        artigo.hasMany(models.Comentario,{            
+        as: 'artigoComentario',
+        foreignKey: 'fk_artigo',
+        targetKey: 'id_artigo'});
                
     }
     return artigo

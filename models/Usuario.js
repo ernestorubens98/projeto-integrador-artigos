@@ -1,12 +1,12 @@
 let Usuario = (sequelize, DataTypes) => {
-    let usuario  = sequelize.define(
+    let usuario = sequelize.define(
         'Usuario',
         {
             id_usuario: {
                 type: DataTypes.INTEGER,
                 primaryKey: true,
                 autoIncrement: true,
-                allowNull:false
+                allowNull: false
             },
             nome: {
                 type: DataTypes.STRING,
@@ -32,28 +32,38 @@ let Usuario = (sequelize, DataTypes) => {
                 type: DataTypes.BOOLEAN,
                 allowNull: false
             }
-        },{
-            tableName: "usuarios",
-            timestamps: false
-        }
+        }, {
+        tableName: "usuarios",
+        timestamps: false
+    }
 
     );
     usuario.associate = (models) => {
-        usuario.belongsToMany(models.Artigo,{
-            foreignKey:'fk_usuario',
+        usuario.belongsToMany(models.Artigo, {
+            foreignKey: 'fk_usuario',
             as: 'autorArtigos',
             through: models.Artigo_Autor
         });
-        usuario.belongsToMany(models.Artigo,{
-            foreignKey:'fk_usuario',
+        usuario.belongsToMany(models.Artigo, {
+            foreignKey: 'fk_usuario',
             as: 'usuarioNotas',
             through: models.Nota
         });
-        usuario.belongsToMany(models.Artigo,{
-            foreignKey:'fk_usuario',
+        usuario.belongsToMany(models.Artigo, {
+            foreignKey: 'fk_usuario',
             as: 'usuarioComentarios',
-            through: models.Comentario
+            through: {
+                model: models.Comentario,
+                unique: false
+            }
+
         });
+        usuario.hasMany(models.Comentario, {
+            as: 'artigoComentario',
+            foreignKey: 'fk_usuario',
+            targetKey: 'id_usuario'
+        }
+        );
     }
     return usuario
 }

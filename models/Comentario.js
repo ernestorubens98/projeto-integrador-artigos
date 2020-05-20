@@ -6,18 +6,21 @@ let Comentario = (sequelize, DataTypes) => {
                 type: DataTypes.INTEGER,
                 primaryKey: true,
                 autoIncrement: true,
-                allowNull:false
-            },
-            texto_comentario: {
-                type: DataTypes.STRING,
-                allowNull: false
-            },
+                allowNull:false,
+                unique: true
+            },            
             fk_usuario: {
                 type: DataTypes.INTEGER,               
-                allowNull: false
+                allowNull: false,
+                unique: false
             },
             fk_artigo: {
                 type: DataTypes.INTEGER,               
+                allowNull: false,
+                unique: false
+            },
+            texto_comentario: {
+                type: DataTypes.STRING,
                 allowNull: false
             },
             data:{
@@ -26,12 +29,20 @@ let Comentario = (sequelize, DataTypes) => {
         },{
             tableName: "comentarios",
             timestamps: false
-        }
+        },
+        {
+            indexes: [
+              {
+                unique: true,
+                fields: ["id_comentario",'fk_usuario','fk_artigo']
+              }
+            ]
+          }
 
     );
     comentario.associate = (models) => {
-        comentario.belongsTo(models.Usuario,{foreignKey:'fk_usuario'});
-        comentario.belongsTo(models.Artigo,{foreignKey:'fk_artigo'});
+        comentario.belongsTo(models.Usuario,{foreignKey:'fk_usuario', unique: false});
+        comentario.belongsTo(models.Artigo,{foreignKey:'fk_artigo', unique: false});
     }
     return comentario
 }
