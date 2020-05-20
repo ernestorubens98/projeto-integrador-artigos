@@ -5,8 +5,22 @@ module.exports = {
       return queryInterface.bulkInsert('artigos_autores', [{
         fk_artigo: 1,
         fk_usuario: 1,
-        is_usuario: true,
-        link: 'www.google.com'
+        link: null
+      },
+      {
+        fk_artigo: 1,
+        fk_usuario: 2,
+        link: null
+      },
+      {
+        fk_artigo: 1,
+        fk_usuario: 3,
+        link: null
+      },
+      {
+        fk_artigo: 2,
+        fk_usuario: 3,
+        link: null
       }], {});
   },
 

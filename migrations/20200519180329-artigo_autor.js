@@ -25,9 +25,6 @@ module.exports = {
             key: 'id_usuario'
           }
         },
-        is_usuario: {
-          type: Sequelize.BOOLEAN,
-        },
         link: {
           type: Sequelize.STRING,
         }

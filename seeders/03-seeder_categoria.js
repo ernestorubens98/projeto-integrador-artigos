@@ -6,7 +6,7 @@ module.exports = {
       nome: 'Matematica'
     },
     {
-      nome: 'Geografia'
+      nome: 'Portugues'
     }], {});
   },
 

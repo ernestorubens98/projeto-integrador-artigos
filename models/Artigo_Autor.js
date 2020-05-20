@@ -16,10 +16,7 @@ let Artigo_Autor = (sequelize, DataTypes) => {
             fk_usuario: {
                 type: DataTypes.INTEGER,
                 primaryKey: true,
-                allowNull: false
-            },
-            is_usuario:{
-                type: DataTypes.BOOLEAN,
+                allowNull: true
             },
             link:{
                 type: DataTypes.STRING,
