@@ -22,7 +22,12 @@ module.exports = {
         arquivo_artigo: {
           type: Sequelize.STRING(100),
           allowNull: true
-        }
+        },
+        data:{
+          type: Sequelize.DATE,
+          allowNull: false,
+          defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+      }
       });
   },
 

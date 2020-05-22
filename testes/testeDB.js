@@ -1,11 +1,32 @@
 const Sequelize = require("sequelize");
 const dbConfig = require("../config/database");
 const dbConn = new Sequelize(dbConfig);
+const { sequelize, Artigo, Categoria, Nota, Usuario, Comentario } = require('../models');
 
-dbConn.query("SELECT * FROM review_artigos.artigos INNER JOIN artigos_autores ON artigos.id_artigo = artigos_autores.fk_artigo INNER JOIN usuarios ON artigos_autores.fk_usuario = usuarios.id_usuario INNER JOIN artigo_categorias ON artigo_categorias.fk_artigo = usuarios.id_usuario INNER JOIN categorias ON artigo_categorias.fk_categoria = categorias.id_categoria;", Sequelize.QueryTypes.SELECT)
-.then(
-    data => {
-        console.log(data);
-        dbConn.close();
-    }
-);
+const query = `
+  SELECT
+    artigos.id_artigo AS "artigos.id_artigo",
+    Notas.fk_artigo AS "Notas.fk_artigo"
+  FROM 
+    artigos
+  LEFT JOIN
+    (SELECT * FROM notas) AS Notas
+  ON
+    artigos.id_artigo = Notas.fk_artigo
+`;
+
+const options = {
+  model: Artigo,
+  mapToModel: true,
+  nest: true,
+  raw: true,
+  type: sequelize.QueryTypes.SELECT
+};
+
+dbConn.query(query, options)
+    .then(
+        data => {
+            console.log(data);
+            dbConn.close();
+        }
+    );

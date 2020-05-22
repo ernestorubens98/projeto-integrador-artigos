@@ -62,8 +62,7 @@ let Usuario = (sequelize, DataTypes) => {
             as: 'artigoComentario',
             foreignKey: 'fk_usuario',
             targetKey: 'id_usuario'
-        }
-        );
+        });
     }
     return usuario
 }

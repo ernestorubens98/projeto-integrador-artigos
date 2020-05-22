@@ -1,24 +1,34 @@
-const { Usuario, Post, Comentario } = require("../models");
+const { sequelize, Artigo, Categoria, Nota, Comentario } = require("../models");
 
 
 const Controller = {
 
-    showIndex: (req, res) => {
+    showIndex: async (req, res) => {
 
-        const Sequelize = require("sequelize");
-        const dbConfig = require("../config/database");
-        const dbConn = new Sequelize(dbConfig);
-
-        dbConn.query("SELECT * FROM review_artigos.artigos INNER JOIN artigos_autores ON artigos.id_artigo = artigos_autores.fk_artigo INNER JOIN usuarios ON artigos_autores.fk_usuario = usuarios.id_usuario GROUP BY id_artigo;", Sequelize.QueryTypes.SELECT)
-            .then(
-                data => {                              
-                    dbConn.close();
-                    res.render('index',{
-                        'listaArtigos': data[0]
-                    });
-                }
-            );
+        let artigoResult = await Artigo.findAll({
+            include: [
+                {
+                    model: Categoria,
+                    as: 'artigoCategorias'
+                },
+            ]
+        }).map(u => u.toJSON());
         
+        let notaResult = await Nota.findAll({
+            attributes: [
+                'fk_artigo',
+                [sequelize.fn('AVG', sequelize.col('nota')), 'mediaNota'],
+                [sequelize.fn('count', sequelize.col('nota')),'countNota']
+            ],
+            group: ['fk_artigo']
+        }).map(u => u.toJSON());
+
+
+        res.render('index',{
+            'listaArtigos': artigoResult,
+            'listaNotas': notaResult
+        });
+
     },
 
 
