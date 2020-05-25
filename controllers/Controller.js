@@ -31,6 +31,19 @@ const Controller = {
 
     },
 
+    showLogin (req, res, next) {
+        res.render('login');
+    },
+
+    showCadastrar: (req, res) => {
+        res.render('cadastrar');
+     
+    },
+
+    showPerfil (req, res, next) {
+        res.render('perfilUsuario');
+    },
+
 
 }
 

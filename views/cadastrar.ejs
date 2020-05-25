@@ -10,37 +10,75 @@
         <div>
             <img src="/images/cadastrar.svg" alt="foto-de-login" class="foto-cadastrar">
         </div>
-    
+
         <div class="bg-darkOver1  vh-75 vw-75 p-5 shadow-lg">
 
             <div class="bg-darkOver1 vh-75 vw-75 p-5 shadow">
                 <div class="d-flex justify-content-center form_container mt-3 bg-lightOver1  shadow vh-75 vw-75 p-5">
-                    <form>
+                    <form method="POST" action="/usuario/cadastro">
                         <div class="input-group mb-3">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-                            <input type="text" name="" class="form-control input_user" value="" placeholder="Full Name">
+                            <input type="text" name="nome" class="form-control input_user" value=""
+                                placeholder="Full Name">
                         </div>
                         <div class="input-group mb-3">
-                            <div class="input-group-append mt-3">
+                            <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                             </div>
-                            <input type="email" name="" class="form-control input_pass mt-3" value="" placeholder="Email">
+                            <input type="email" name="email" class="form-control input_pass" value=""
+                                placeholder="Email">
                         </div>
-                        <div class="input-group mb-2">
-                            <div class="input-group-append mt-3">
+                        <div class="input-group mb-3">
+                            <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
-                            <input type="password" name="" class="form-control input_pass mt-3" value="" placeholder="Password">
+                            <input type="password" name="senha" class="form-control input_pass" value=""
+                                placeholder="Password">
                         </div>
 
+                        <div class="input-group mb-3">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="text" name="areaAtuacao" class="form-control input_user" value=""
+                                placeholder="Area de Atuação">
+                        </div>
+
+                        <% if(typeof(errors) != "undefined") { %>
+                        <ul>
+
+                            <% for(let i = 0; i < errors.length; i++) { %>
+
+                            <div class="alert alert-danger mb-3" role="alert"><%= errors[i].msg %></div>
+
+                            <% } %>
+
+                        </ul>
+
+                        <% } %>
+
+                        <% if(typeof(error) != "undefined") { %>
+                            <ul>
+    
+                                <% for(let i = 0; i < error.length; i++) { %>
+    
+                                <div class="alert alert-danger mb-3" role="alert"><%= error[i].message %></div>
+    
+                                <% } %>                                 
+    
+                            </ul>
+    
+                            <% } %>
+
                         <div class="d-flex justify-content-center mt-3 login_container">
-                            <button type="button" name="button" class="btn btn-primary form-control mt-3 entrar-login">Cadastrar</button>
+                            <button type="submit"
+                                class="btn btn-primary form-control mt-3 entrar-login">Cadastrar</button>
                         </div>
                         <div class="mt-5">
                             <div class="d-flex justify-content-center links">
-                                <p>Já possui uma conta?</p> 
+                                <p>Já possui uma conta?</p>
                                 <a href="login" class="ml-2">Entrar</a>
                             </div>
                         </div>
@@ -50,4 +88,4 @@
         </div>
     </div>
 
-<%- include('parts/foot'); %>
+    <%- include('parts/foot'); %>
