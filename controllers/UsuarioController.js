@@ -52,7 +52,14 @@ const usuarioController = {
         // }
         
         let {nome, email, senha, areaAtuacao } = req.body;
-        let foto_perfil = `${req.file.destination}/${email}-${req.file.originalname}`
+
+        let foto_perfil = '';
+
+        if (typeof(req.file) != 'undefined') {
+            foto_perfil = `${email}-${req.file.originalname}`
+        }
+
+        
         let senhaHash = bcrypt.hashSync(senha,12);
 
         Usuario.create({
@@ -71,14 +78,44 @@ const usuarioController = {
 
           });
     },
-    showPerfil (req, res, next) {
-        res.render('perfilUsuario');
+    showPerfil: async (req, res, next) => {
+        let id = req.params.id;
+
+        let artigoResult = await Artigo.findAll({
+            include: [
+                {
+                    model: Categoria,
+                    as: 'artigoCategorias'
+                },
+                {
+                    model: Usuario,
+                    as: 'artigoAutores',
+                    where: {
+                        id_usuario: id
+                    }
+                }
+            ]
+        }).map(u => u.toJSON());
+
+        let notaResult = await Nota.findAll({
+            attributes: [
+                'fk_artigo',
+                [sequelize.fn('AVG', sequelize.col('nota')), 'mediaNota'],
+                [sequelize.fn('count', sequelize.col('nota')), 'countNota']
+            ],
+            group: ['fk_artigo']
+        }).map(u => u.toJSON());
+
+        res.render('perfilUsuario',{
+            'listaArtigos': artigoResult,
+            'listaNotas': notaResult,
+            usuario: req.session.usuario
+        });
     },
    
     logoutUsuario: (req, res) => {
         req.session.usuario = undefined;
-        res.redirect('/')
-        console.log(req.session.usuario)
+        res.redirect('/');
     }
 
 }

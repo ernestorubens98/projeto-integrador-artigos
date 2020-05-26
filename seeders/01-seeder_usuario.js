@@ -7,6 +7,7 @@ module.exports = {
         email: 'teste@teste.com',
         senha: '123456',
         area_atuacao: 'Sei la',
+        perfil_usuario: 'davi@davi.com-DaviRed.jpg',
         is_admin: false,
       },
       {
@@ -14,6 +15,7 @@ module.exports = {
         email: 'davi@gmail.com',
         senha: '123456',
         area_atuacao: 'Sei la',
+        perfil_usuario: 'ernesto2@teste.comDaviRed.jpg',
         is_admin: true,
       },
       {
@@ -21,6 +23,7 @@ module.exports = {
         email: 'teste@gmail.com',
         senha: '123456',
         area_atuacao: 'Sei la',
+        perfil_usuario: 'foto-perfil.png',
         is_admin: true,
       }], {});
   },

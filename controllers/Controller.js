@@ -1,4 +1,4 @@
-const { sequelize, Artigo, Categoria, Nota, Comentario } = require("../models");
+const { sequelize, Artigo, Categoria, Nota, Usuario } = require("../models");
 
 
 const Controller = {
@@ -11,20 +11,24 @@ const Controller = {
                     model: Categoria,
                     as: 'artigoCategorias'
                 },
+                {
+                    model: Usuario,
+                    as: 'artigoAutores'
+                }
             ]
         }).map(u => u.toJSON());
-        
+
         let notaResult = await Nota.findAll({
             attributes: [
                 'fk_artigo',
                 [sequelize.fn('AVG', sequelize.col('nota')), 'mediaNota'],
-                [sequelize.fn('count', sequelize.col('nota')),'countNota']
+                [sequelize.fn('count', sequelize.col('nota')), 'countNota']
             ],
             group: ['fk_artigo']
         }).map(u => u.toJSON());
 
 
-        res.render('index',{
+        res.render('index', {
             'listaArtigos': artigoResult,
             'listaNotas': notaResult,
             usuario: req.session.usuario

@@ -21,7 +21,7 @@ router.post('/cadastrar',[
     check('areaAtuacao').isLength({min:3}).withMessage('Area de atuacao deve conter pelo menos 3 caracteres')
 ], multer(multerConfig).single('foto_perfil'), usuarioController.cadastrarUsuario);
 
-router.get('/perfil', usuarioController.showPerfil);
+router.get('/perfil/:id', usuarioController.showPerfil);
 
 router.get('/logout', usuarioLogado,usuarioController.logoutUsuario);
 
