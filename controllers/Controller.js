@@ -26,29 +26,11 @@ const Controller = {
 
         res.render('index',{
             'listaArtigos': artigoResult,
-            'listaNotas': notaResult
+            'listaNotas': notaResult,
+            usuario: req.session.usuario
         });
 
-    },
-
-    showLogin (req, res, next) {
-        res.render('login');
-    },
-
-    esqueceuSenha (req, res) {
-        res.render('esqueceu-senha')
-    },
-
-    showCadastrar: (req, res) => {
-        res.render('cadastrar');
-     
-    },
-
-    showPerfil (req, res, next) {
-        res.render('perfilUsuario');
-    },
-
-
+    }
 }
 
 module.exports = Controller;

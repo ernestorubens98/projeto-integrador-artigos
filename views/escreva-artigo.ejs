@@ -2,7 +2,11 @@
 
 <body class="bg-dark text-light">
     <%- include('parts/header'); %>
-
+    <div>
+        <% if (usuario  !== undefined) { %>
+            <h3>Olá <%= usuario.nome%> </h3>
+        <% } %>
+    </div>
     <form class="p-5 container">
         <div class="form-group">
             <label for="exampleFormControlInput1">Título</label>

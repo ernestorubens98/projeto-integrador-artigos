@@ -1,10 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
+const ArtigoController = require("../controllers/ArtigoController");
+const usuarioLogado = require('../middlewares/usuarioLogado')
+
+
 /* GET users listing. */
-router.get('/criarartigo', function(req, res, next) {
-  res.render('escreva-artigo');
-});
+router.get('/escreva-artigo', usuarioLogado, ArtigoController.showEscrevaArtigo)
 
 router.get('/artigo', function(req, res, next) {
   res.render('artigo');

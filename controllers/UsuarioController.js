@@ -1,0 +1,82 @@
+const bcrypt = require("bcrypt");
+const { check, validationResult, body } = require('express-validator');
+const { sequelize, Artigo, Categoria, Nota, Comentario, Usuario } = require("../models");
+
+const usuarioController = {    
+
+    showLogin: (req, res) => {
+        res.render('login');
+    },
+
+    logarUsuario: async (req, res) => {
+        
+        let { email, senha } = req.body;
+
+        const infoUser = await Usuario.findOne({
+            where: {
+                email
+            }
+        });
+
+        if (!infoUser) {
+            res.redirect('/login?error=1');
+        }
+
+        if (!bcrypt.compareSync(senha, infoUser.senha)) {
+            res.redirect('/login?error=1');
+        }
+
+        req.session.usuario = {
+            nome: infoUser.nome,
+            email: infoUser.email
+        };
+
+        res.redirect("/");            
+    },
+
+    esqueceuSenha (req, res) {
+        res.render('esqueceu-senha')
+    },
+
+    showCadastrar: (req, res) => {
+        res.render('cadastrar');
+    },
+
+    cadastrarUsuario: (req, res) => {
+
+        let errors = validationResult(req);
+        // if(!errors.isEmpty()) {
+        //     console.log(errors);
+        //     return res.render('cadastrar',{errors: errors.errors});
+
+        // }
+        
+        let {nome, email, senha, areaAtuacao } = req.body;
+        let foto_perfil = req.file.destination + email
+        let senhaHash = bcrypt.hashSync(senha,12);
+
+        Usuario.create({
+            nome,
+            email,
+            senha: senhaHash,
+            area_atuacao: areaAtuacao,
+            foto_perfil,
+            is_admin: false,
+          }).then(result => {
+
+            res.redirect('/login');
+
+          }).catch(error => {           
+            res.render('cadastrar',{error: error.errors});
+
+          });
+    },
+    showPerfil (req, res, next) {
+        res.render('perfilUsuario');
+    },
+   
+
+
+}
+
+module.exports = usuarioController;

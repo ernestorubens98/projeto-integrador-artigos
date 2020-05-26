@@ -3,9 +3,10 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+let session = require('express-session')
 
-var indexRouter = require('./routes/IndexRouter');
-var UsuariosRouter = require('./routes/UsuariosRouter');
+var IndexRouter = require('./routes/IndexRouter');
+var UsuarioRouter = require('./routes/UsuarioRouter');
 var ArtigoRouter = require('./routes/ArtigoRouter');
 
 var app = express();
@@ -14,14 +15,19 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use(session({ 
+  secret: 'Seguranca',
+  resave: true,
+  saveUninitialized: true
+}));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/usuario', UsuariosRouter);
+app.use('/', IndexRouter);
+app.use('/usuario', UsuarioRouter);
 app.use('/artigo', ArtigoRouter);
 
 

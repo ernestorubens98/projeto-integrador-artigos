@@ -10,12 +10,4 @@ router.get('/about', function(req, res, next) {
   res.render('about');
 });
 
-router.get('/login', Controller.showLogin);
-
-router.get('/esqueceu-senha', Controller.esqueceuSenha);
-
-router.get('/cadastrar', Controller.showCadastrar);
-
-router.get('/perfil', Controller.showPerfil);
-
 module.exports = router;

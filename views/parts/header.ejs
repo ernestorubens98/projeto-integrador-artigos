@@ -10,12 +10,16 @@
             <input class="form-control text-light w-75" type="search" placeholder="Procurar" aria-label="Search">
             <button class="btn btn-outline-info ml-2 botao-procurar" type="submit">Procurar</button>
         </form>
-
+        <div>
+            <% if (usuario  !== undefined) { %>
+                <h3>Olá <%= usuario.nome%> </h3>
+            <% } %>
+        </div>
         <div class="nav-item d-flex align-items-center ml-auto">
-            <a href="/criarartigo" type="button" class="btn btn-primary escreva-artigo">
+            <a href="/artigo/escreva-artigo" type="button" class="btn btn-primary escreva-artigo">
                 <span class="h5">Escreva um Artigo</span>
             </a>
-            <a class="nav-link my-2 about-login" href="/login">Login</a>
+            <a class="nav-link my-2 about-login" href="/usuario/login">Login</a>
         </div>
 
     </nav>
