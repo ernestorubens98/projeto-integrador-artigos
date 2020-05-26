@@ -1,0 +1,33 @@
+<%- include('parts/head',{title:'Login'}); %>
+
+<body class="container min-vh-100 d-flex flex-column justify-content-center align-items-center bg-dark text-light tela-login">
+    <div class="d-flex justify-content-center h1 mb-3">
+        Enviar e-mail de recuperação
+    </div>
+    <div class="d-flex justify-content-center align-items-center">
+        
+        <div class="bg-darkOver1  vh-75 vw-75 p-5 shadow-lg">
+
+            <div class="bg-darkOver1  vh-75 vw-75 p-5 shadow">
+                <div class="d-flex justify-content-center form_container mt-3 bg-lightOver1 shadow vh-75 vw-75 p-5">
+                    <form method="POST" action="/usuario/login">
+                        <div class="input-group mb-3">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                            </div>
+                            <input type="email" name="email" class="form-control input_pass" value="" placeholder="Email de recuperação">
+                        </div>
+                        <div class="d-flex justify-content-center mt-3 login_container">
+                            <button type="submit"
+                                class="btn btn-primary form-control mt-3 entrar-login">Enviar</button>
+                        </div>
+                        <div class="d-flex justify-content-center links mt-5">
+                            <a href="login">Login</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<%- include('parts/foot'); %>

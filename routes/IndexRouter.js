@@ -12,6 +12,8 @@ router.get('/about', function(req, res, next) {
 
 router.get('/login', Controller.showLogin);
 
+router.get('/esqueceu-senha', Controller.esqueceuSenha);
+
 router.get('/cadastrar', Controller.showCadastrar);
 
 router.get('/perfil', Controller.showPerfil);

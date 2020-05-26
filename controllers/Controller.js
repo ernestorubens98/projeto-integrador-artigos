@@ -35,6 +35,10 @@ const Controller = {
         res.render('login');
     },
 
+    esqueceuSenha (req, res) {
+        res.render('esqueceu-senha')
+    },
+
     showCadastrar: (req, res) => {
         res.render('cadastrar');
      

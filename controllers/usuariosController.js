@@ -1,20 +1,20 @@
-const { sequelize, Artigo, Categoria, Nota, Comentario, Usuario } = require("../models");
 const bcrypt = require("bcrypt");
 const { check, validationResult, body } = require('express-validator');
+const { sequelize, Artigo, Categoria, Nota, Comentario, Usuario } = require("../models");
 
 const usuariosController = {    
 
     cadastrarUsuario: (req, res) => {
 
         let errors = validationResult(req);
-        if(!errors.isEmpty()) {
-            console.log(errors);
-            return res.render('cadastrar',{errors: errors.errors});
+        // if(!errors.isEmpty()) {
+        //     console.log(errors);
+        //     return res.render('cadastrar',{errors: errors.errors});
 
-        }
+        // }
         
-        let {nome, email, senha, areaAtuacao} = req.body;
-
+        let {nome, email, senha, areaAtuacao } = req.body;
+        let foto_perfil = req.file.destination
         let senhaHash = bcrypt.hashSync(senha,12);
 
         Usuario.create({
@@ -22,6 +22,7 @@ const usuariosController = {
             email,
             senha: senhaHash,
             area_atuacao: areaAtuacao,
+            foto_perfil,
             is_admin: false,
           }).then(result => {
 

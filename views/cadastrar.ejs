@@ -15,35 +15,38 @@
 
             <div class="bg-darkOver1 vh-75 vw-75 p-5 shadow">
                 <div class="d-flex justify-content-center form_container mt-3 bg-lightOver1  shadow vh-75 vw-75 p-5">
-                    <form method="POST" action="/usuario/cadastro">
+                    <form method="POST" action="/usuario/cadastrar" enctype="multipart/form-data">
                         <div class="input-group mb-3">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
                             <input type="text" name="nome" class="form-control input_user" value=""
-                                placeholder="Full Name">
+                                placeholder="Digite seu nome">
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                             </div>
                             <input type="email" name="email" class="form-control input_pass" value=""
-                                placeholder="Email">
+                                placeholder="email@dominio.com">
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
                             <input type="password" name="senha" class="form-control input_pass" value=""
-                                placeholder="Password">
+                                placeholder="Digite sua senha">
                         </div>
 
                         <div class="input-group mb-3">
                             <div class="input-group-append">
-                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
                             </div>
                             <input type="text" name="areaAtuacao" class="form-control input_user" value=""
-                                placeholder="Area de Atuação">
+                                placeholder="Digite sua área de atuação">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <input type="file" name="foto_perfil" class="input_user">
                         </div>
 
                         <% if(typeof(errors) != "undefined") { %>
