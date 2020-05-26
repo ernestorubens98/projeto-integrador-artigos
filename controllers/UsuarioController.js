@@ -52,7 +52,7 @@ const usuarioController = {
         // }
         
         let {nome, email, senha, areaAtuacao } = req.body;
-        let foto_perfil = req.file.destination + email
+        let foto_perfil = `${req.file.destination}/${email}-${req.file.originalname}`
         let senhaHash = bcrypt.hashSync(senha,12);
 
         Usuario.create({
@@ -64,7 +64,7 @@ const usuarioController = {
             is_admin: false,
           }).then(result => {
 
-            res.redirect('/login');
+            res.redirect('/usuario/login');
 
           }).catch(error => {           
             res.render('cadastrar',{error: error.errors});
@@ -75,7 +75,11 @@ const usuarioController = {
         res.render('perfilUsuario');
     },
    
-
+    logoutUsuario: (req, res) => {
+        req.session.usuario = undefined;
+        res.redirect('/')
+        console.log(req.session.usuario)
+    }
 
 }
 

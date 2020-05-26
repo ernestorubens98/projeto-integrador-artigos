@@ -8,9 +8,10 @@ module.exports = {
             cb(null, path.resolve(__dirname, '..', 'uploads'))
         },
         filename: (req, file, cb) => {
-                const fileName = `${file.originalname}`
+            let email = req.body.email;
+            const fileName = `${email}-${file.originalname}`
 
-                cb(null, fileName)
+            cb(null, fileName)
         }
     }),
     limits: {
