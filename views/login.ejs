@@ -14,6 +14,9 @@
             <div class="bg-darkOver1  vh-75 vw-75 p-5 shadow">
                 <div class="d-flex justify-content-center form_container mt-3 bg-lightOver1 shadow vh-75 vw-75 p-5">
                     <form method="POST" action="/usuario/login">
+                        <% if (err) { %>
+                            <div class="alert alert-danger mb-3" role="alert">Usuário ou senha inválida!</div>
+                        <% } %>
                         <div class="input-group mb-3">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-envelope"></i></span>

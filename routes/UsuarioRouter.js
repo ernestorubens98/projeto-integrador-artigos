@@ -3,10 +3,10 @@ var router = express.Router();
 
 const { check, validationResult, body } = require('express-validator');
 const multer = require('multer');
+
 const multerConfig = require('../config/multer');
 const usuarioController = require("../controllers/UsuarioController");
-
-const usuarioLogado = require('../middlewares/usuarioLogado')
+const usuarioLogado = require('../middlewares/usuarioLogado');
 
 router.get('/login', usuarioController.showLogin);
 router.post('/login', usuarioController.logarUsuario);
