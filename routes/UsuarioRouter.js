@@ -9,17 +9,12 @@ const usuarioController = require("../controllers/UsuarioController");
 const usuarioLogado = require('../middlewares/usuarioLogado');
 
 router.get('/login', usuarioController.showLogin);
-router.post('/login', usuarioController.logarUsuario);
+router.post('/login', [check('email').isEmail().withMessage('Digite um email válido!')], usuarioController.logarUsuario);
 
 router.get('/esqueceu-senha', usuarioController.esqueceuSenha);
 
 router.get('/cadastrar', usuarioController.showCadastrar);
-router.post('/cadastrar',[
-    check('email').isEmail().withMessage('Digite um email valido!'),
-    check('nome').isLength({min:3}).withMessage('Nome do usuario deve conter no minino 3 caracteres'),
-    check('senha').isLength({min:6}).withMessage('Senha do usuario deve conter no minino 6 caracteres'),
-    check('areaAtuacao').isLength({min:3}).withMessage('Area de atuacao deve conter pelo menos 3 caracteres')
-], multer(multerConfig).single('foto_perfil'), usuarioController.cadastrarUsuario);
+router.post('/cadastrar', multer(multerConfig).single('foto_perfil'), usuarioController.cadastrarUsuario);
 
 router.get('/perfil/:id', usuarioController.showPerfil);
 

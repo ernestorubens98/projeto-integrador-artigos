@@ -48,33 +48,13 @@
                         <div class="mb-3 mt-3">
                             <input type="file" name="foto_perfil" class="input_user">
                         </div>
-
                         <% if(typeof(errors) != "undefined") { %>
-                        <ul>
-
-                            <% for(let i = 0; i < errors.length; i++) { %>
-
-                            <div class="alert alert-danger mb-3" role="alert"><%= errors[i].msg %></div>
-
-                            <% } %>
-
-                        </ul>
-
-                        <% } %>
-
-                        <% if(typeof(error) != "undefined") { %>
                             <ul>
-    
-                                <% for(let i = 0; i < error.length; i++) { %>
-    
-                                <div class="alert alert-danger mb-3" role="alert"><%= error[i].message %></div>
-    
-                                <% } %>                                 
-    
+                                <% errors.forEach((error) => { %>
+                                    <li><%= error %> </li>
+                                <% }) %>
                             </ul>
-    
-                            <% } %>
-
+                        <% } %>
                         <div class="d-flex justify-content-center mt-3 login_container">
                             <button type="submit"
                                 class="btn btn-primary form-control mt-3 entrar-login">Cadastrar</button>
