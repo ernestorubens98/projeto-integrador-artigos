@@ -12,4 +12,6 @@ router.get('/artigo', function(req, res, next) {
   res.render('artigo');
 });
 
+router.get('/busca/:id', ArtigoController.buscaArtigoPorTitulo);
+
 module.exports = router;

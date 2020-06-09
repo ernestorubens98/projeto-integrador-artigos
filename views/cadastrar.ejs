@@ -21,21 +21,21 @@
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
                             <input type="text" name="nome" class="form-control input_user" value=""
-                                placeholder="Digite seu nome">
+                                placeholder="Digite seu nome" required>
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                             </div>
                             <input type="email" name="email" class="form-control input_pass" value=""
-                                placeholder="email@dominio.com">
+                                placeholder="email@dominio.com" required>
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
                             <input type="password" name="senha" class="form-control input_pass" value=""
-                                placeholder="Digite sua senha">
+                                placeholder="Digite sua senha" required>
                         </div>
 
                         <div class="input-group mb-3">
@@ -43,15 +43,15 @@
                                 <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
                             </div>
                             <input type="text" name="areaAtuacao" class="form-control input_user" value=""
-                                placeholder="Digite sua área de atuação">
+                                placeholder="Digite sua área de atuação" required>
                         </div>
                         <div class="mb-3 mt-3">
                             <input type="file" name="foto_perfil" class="input_user">
                         </div>
-                        <% if(typeof(errors) != "undefined") { %>
+                        <% if(typeof(error) != "undefined") { %>
                             <ul>
-                                <% errors.forEach((error) => { %>
-                                    <li><%= error %> </li>
+                                <% error.forEach((err) => { %>
+                                    <li class="alert alert-danger mb-3 p-2" role="alert"><%= err %></li>
                                 <% }) %>
                             </ul>
                         <% } %>
@@ -65,6 +65,7 @@
                                 <a href="/usuario/login" class="ml-2">Entrar</a>
                             </div>
                         </div>
+
                     </form>
                 </div>
             </div>

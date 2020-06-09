@@ -7,6 +7,7 @@ const multer = require('multer');
 const multerConfig = require('../config/multer');
 const usuarioController = require("../controllers/UsuarioController");
 const usuarioLogado = require('../middlewares/usuarioLogado');
+const validaCadastro = require('../middlewares/validaCadastro');
 
 router.get('/login', usuarioController.showLogin);
 router.post('/login', [check('email').isEmail().withMessage('Digite um email válido!')], usuarioController.logarUsuario);
@@ -14,7 +15,7 @@ router.post('/login', [check('email').isEmail().withMessage('Digite um email vá
 router.get('/esqueceu-senha', usuarioController.esqueceuSenha);
 
 router.get('/cadastrar', usuarioController.showCadastrar);
-router.post('/cadastrar', multer(multerConfig).single('foto_perfil'), usuarioController.cadastrarUsuario);
+router.post('/cadastrar', multer(multerConfig).single('foto_perfil'), validaCadastro, usuarioController.cadastrarUsuario);
 
 router.get('/perfil/:id', usuarioController.showPerfil);
 

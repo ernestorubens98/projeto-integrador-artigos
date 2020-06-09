@@ -56,34 +56,21 @@ const usuarioController = {
     cadastrarUsuario: async (req, res) => {
         let { nome, email, senha, areaAtuacao } = req.body;
         let foto_perfil = '';
-        let listaDeErrors = []
-        
-        if(!nome) {
-            listaDeErrors.push('Nome Inválido')
-        }
 
-        if (!listaDeErrors) {
-            if (typeof (req.file) != 'undefined') {
-                foto_perfil = `${email}-${req.file.originalname}`
-            }
-    
-            let senhaHash = await bcrypt.hash(senha, 12);
-    
-            await Usuario.create({
-                nome,
-                email,
-                senha: senhaHash,
-                area_atuacao: areaAtuacao,
-                foto_perfil,
-                is_admin: false,
-            })
-    
-            return res.redirect('/usuario/login');
-        } else {
-            // console.log(listaDeErrors.errors)
-            res.render('cadastrar', { errors: listaDeErrors});
+        if (typeof (req.file) != 'undefined') {
+            foto_perfil = `${email}-${req.file.originalname}`
         }
-    
+        let senhaHash = await bcrypt.hash(senha, 12);
+
+        await Usuario.create({
+            nome,
+            email,
+            senha: senhaHash,
+            area_atuacao: areaAtuacao,
+            foto_perfil,
+            is_admin: false,
+        })
+        return res.redirect('/usuario/login');
     },
 
     showPerfil: async (req, res, next) => {
