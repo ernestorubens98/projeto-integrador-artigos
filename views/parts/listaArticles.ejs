@@ -1,14 +1,16 @@
 <div>
 
     <% for(let i = 0; i < listaArtigos.length; i++) { %>
-    
+
     <article class="pt-3 pl-3 pr-3 mb-3 cor-fundo-artigo">
         <div class="d-flex align-items-center mb-4">
-            
-            <a href="/usuario/perfil/<%= listaArtigos[i].artigoAutores[0].id_usuario %>"><img src="/<%= listaArtigos[i].artigoAutores[0].foto_perfil %>" width="70" class="rounded-circle"></a>
+
+            <a href="/usuario/perfil/<%= listaArtigos[i].artigoAutores[0].id_usuario %>">
+                <img src="/<%= listaArtigos[i].artigoAutores[0].foto_perfil %>" width="70" class="rounded-circle">
+            </a>
             <div class="ml-3 w-100">
                 <div class="d-flex">
-                    <a href="/artigo/artigo" class="titulo-artigo">
+                    <a href="/artigo/<%= listaArtigos[i].id_artigo%>" class="titulo-artigo">
                         <h3><%= listaArtigos[i].titulo %></h3>
                     </a>
                     <div class="ml-auto">
@@ -28,7 +30,7 @@
         <p><%= listaArtigos[i].resumo %></p>
         <div class="d-flex rodape-artigo">
             <p>Autor:</p>
-            <a href="/usuario/perfil" class="ml-2">
+            <a href="/usuario/perfil/<%= listaArtigos[i].artigoAutores[0].id_usuario %>" class="ml-2">
                 <p><%= listaArtigos[i].artigoAutores[0].nome %></p>
             </a>
 

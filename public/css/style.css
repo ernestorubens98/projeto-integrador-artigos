@@ -1,10 +1,4 @@
-body{
-    margin: 0 auto;
-    padding: 0;
-    min-height:100%;
-    position:relative;
- 
- }
+
 /* HEADER */
 .botao-procurar {
     color: white;

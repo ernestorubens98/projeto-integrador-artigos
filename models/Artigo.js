@@ -20,14 +20,16 @@ let Artigo = (sequelize, DataTypes) => {
                 type: DataTypes.STRING,
                 allowNull: true
             },
-            data:{
+            createdAt:{
                 type: DataTypes.DATE,
                 allowNull: false,
                 defaultValue: DataTypes.NOW
+            },
+            updatedAt:{
+                type: DataTypes.DATE,
             }
         },{
             tableName: "artigos",
-            timestamps: false
         }
 
     );

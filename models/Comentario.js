@@ -23,12 +23,16 @@ let Comentario = (sequelize, DataTypes) => {
                 type: DataTypes.STRING,
                 allowNull: false
             },
-            data:{
+            createdAt:{
+                type: DataTypes.DATE,
+                allowNull: false,
+                defaultValue: DataTypes.NOW
+            },
+            updatedAt:{
                 type: DataTypes.DATE,
             }
         },{
             tableName: "comentarios",
-            timestamps: false
         },
         {
             indexes: [

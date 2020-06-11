@@ -28,8 +28,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'uploads')));
 
 app.use('/', IndexRouter);
+app.use('/', ArtigoRouter);
 app.use('/usuario', UsuarioRouter);
-app.use('/artigo', ArtigoRouter);
 
 
 // catch 404 and forward to error handler

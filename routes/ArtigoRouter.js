@@ -8,10 +8,7 @@ const usuarioLogado = require('../middlewares/usuarioLogado');
 /* GET users listing. */
 router.get('/escreva-artigo', usuarioLogado, ArtigoController.showEscrevaArtigo)
 
-router.get('/artigo', function(req, res, next) {
-  res.render('artigo');
-});
+router.get('/artigo/:id', ArtigoController.buscaById);
 
-router.get('/busca/:id', ArtigoController.buscaArtigoPorTitulo);
 
 module.exports = router;

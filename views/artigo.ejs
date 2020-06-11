@@ -1,104 +1,91 @@
-<%- include('parts/head',{title:'Home'}); %>
+<%- include('parts/head',{title:'Artigo'}); %>
 
 <body class="bg-dark text-light">
-    <%- include('parts/header'); %>
+  <%- include('parts/header'); %>
 
-    <main class="d-flex">
-        <aside class="sidebar border-right border-secondary categorias">
-            <div class="border-bottom">
-            <div class="card bg-info m-3">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
+  <main class="d-flex">
+    <aside class="sidebar border-right border-secondary categorias">
+      <div class="border-bottom">
+        <div class="card bg-info m-3">
+          <img class="card-img-top" src="..." alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+              card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
         </div>
+      </div>
 
-        <div class="h5 d-flex justify-content-center mt-3">Categorias</div>
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-light">#matemática</a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-light">#português</a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-light">#história</a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-light">#filosofia</a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-light">#biologia</a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-light">#física</a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-light">#química</a>
+    </aside>
 
-        </aside>
+    <div class="p-5 corpo">
 
-        <div class="p-5 corpo">
+      <h1 class=""> <%= artigo.titulo %> </h1>
 
-            
-                <h1 class="">Título</h1>
+      <h2>Resumo do Artigo</h2>
 
+      <p> <%= artigo.resumo %> </p>
 
-
-            <h2>Resumo do Artigo</h2>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur, assumenda tenetur at sed officiis
-                vitae labore praesentium dolor consequatur culpa, esse ducimus sunt autem, vel possimus saepe mollitia
-                cupiditate fugiat!
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi dignissimos labore, saepe vero sequi porro
-                at magnam omnis sed quo molestias ex dolores animi atque. Obcaecati sapiente voluptatum quae
-                necessitatibus.</p>
-
-                <div class="d-flex justify-content-between">
-            <a class="btn btn-primary" href="#" role="button">Link do Artigo</a>
-           <div>
-                <button class="btn btn-primary" type="button"><i class="fas fa-thumbs-up"> 200</i></button>
-                <button class="btn btn-primary" type="button"><i class="fas fa-thumbs-down"> 32</i></button>
-            </div>
-            </div>
-
-            <div class="comentarios bg-darkOver1 mt-5 p-3">
-
-                <ul class="list-unstyled">
-                    <li class="media">
-                      <img class="mr-3" src="..." alt="Generic placeholder image">
-                      <div class="media-body">
-                        <h5 class="mt-0 mb-1">List-based media object</h5>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                      </div>
-                    </li>
-                    <li class="media my-4">
-                      <img class="mr-3" src="..." alt="Generic placeholder image">
-                      <div class="media-body">
-                        <h5 class="mt-0 mb-1">List-based media object</h5>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                      </div>
-                    </li>
-                    <li class="media">
-                      <img class="mr-3" src="..." alt="Generic placeholder image">
-                      <div class="media-body">
-                        <h5 class="mt-0 mb-1">List-based media object</h5>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                      </div>
-                    </li>
-                  </ul>
-
-            </div>
-
-        <div class="comentarioFazer bg-darkOver1 mt-5 p-3">
-
-            <form>
-            <div class="form-group">
-                <label for="exampleFormControlTextarea1">Comentario</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-              </div>
-            </form>
-
-            <button class="btn btn-primary" type="button">Comentar</button>
-
-
+      <div class="d-flex justify-content-between">
+        <a class="btn btn-primary" href="#" role="button">Link do Artigo</a>
+        <div>
+          <button class="btn btn-primary" type="button"><i class="fas fa-thumbs-up"> 200</i></button>
+          <button class="btn btn-primary" type="button"><i class="fas fa-thumbs-down"> 32</i></button>
         </div>
+      </div>
 
-        </div>
+      <div class="comentarios bg-darkOver1 mt-5 p-3">
 
+        <ul class="list-unstyled">
+          <li class="media">
+            <img class="mr-3" src="..." alt="Generic placeholder image">
+            <div class="media-body">
+              <h5 class="mt-0 mb-1">List-based media object</h5>
+              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus
+              odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
+              fringilla. Donec lacinia congue felis in faucibus.
+            </div>
+          </li>
+          <li class="media my-4">
+            <img class="mr-3" src="..." alt="Generic placeholder image">
+            <div class="media-body">
+              <h5 class="mt-0 mb-1">List-based media object</h5>
+              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus
+              odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
+              fringilla. Donec lacinia congue felis in faucibus.
+            </div>
+          </li>
+          <li class="media">
+            <img class="mr-3" src="..." alt="Generic placeholder image">
+            <div class="media-body">
+              <h5 class="mt-0 mb-1">List-based media object</h5>
+              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus
+              odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
+              fringilla. Donec lacinia congue felis in faucibus.
+            </div>
+          </li>
+        </ul>
 
-    </main>
+      </div>
 
-    <%- include('parts/footer'); %>
+      <div class="comentarioFazer bg-darkOver1 mt-5 p-3">
 
-    <%- include('parts/foot'); %>
+        <form>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Comentario</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+        </form>
+
+        <button class="btn btn-primary" type="button">Comentar</button>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <%- include('parts/footer'); %>
+
+  <%- include('parts/foot'); %>

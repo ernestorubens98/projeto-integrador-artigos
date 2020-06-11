@@ -18,6 +18,8 @@ const Controller = {
             ]
         }).map(u => u.toJSON());
 
+        console.log(artigoResult[0].id_artigo)
+
         let notaResult = await Nota.findAll({
             attributes: [
                 'fk_artigo',

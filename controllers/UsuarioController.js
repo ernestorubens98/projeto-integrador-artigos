@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
 const { check, validationResult, body } = require('express-validator');
-const { sequelize, Nota, Usuario } = require("../models");
+const { sequelize, Nota, Usuario, Artigo, Categoria } = require("../models");
 
 const usuarioController = {
 
@@ -74,7 +74,7 @@ const usuarioController = {
     },
 
     showPerfil: async (req, res, next) => {
-        let id = req.params.id;
+        let { id } = req.params;
 
         let artigoResult = await Artigo.findAll({
             include: [
@@ -91,6 +91,9 @@ const usuarioController = {
                 }
             ]
         }).map(u => u.toJSON());
+
+        console.log(artigoResult[0].id_artigo)
+
 
         let notaResult = await Nota.findAll({
             attributes: [
